@@ -3,9 +3,13 @@
   <view class="login">
     <view class="login-main">
       <text class="login-main-title">欢迎登陆</text>
-      <view class="login-main-subtitle"
-        >帮助你搭建好用的uniapp+vue3基础项目</view
-      >
+      <view class="login-main-subtitle">
+        帮助你搭建好用的uniapp+vue3基础项目
+      </view>
+      <!-- 使用示例 -->
+      <Icon name="123.jpg" size="64" @click="handleIconClick" />
+      <Icon name="RightArrow.svg" size="32" color="#666666" />
+      <wd-icon name="add-circle" size="20px" color="blue" />
       <view class="login-main-body">
         <login-input
           key="username"
@@ -41,6 +45,7 @@
 </template>
 
 <script lang="ts" setup>
+import Icon from '@/components/common/Icon.vue'
 import DemoApi from '@/api/DemoApi'
 import LoginInput from './cmp/LoginInput.vue'
 import { useToast } from 'wot-design-uni/components/wd-toast'
@@ -64,6 +69,11 @@ function doLogin() {
     school: 'Wot Design Uni',
   }
   router.replaceAll({ name: 'home' })
+}
+
+// 图标点击事件
+const handleIconClick = () => {
+  console.log('icon clicked')
 }
 </script>
 
