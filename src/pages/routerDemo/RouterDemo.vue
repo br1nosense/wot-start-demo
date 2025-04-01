@@ -1,12 +1,32 @@
+<!--
+ * @Author: ‘baifeirong’ ‘963015343@qq.com’
+ * @Date: 2025-04-01 14:24:01
+ * @LastEditors: ‘baifeirong’ ‘963015343@qq.com’
+ * @LastEditTime: 2025-04-01 15:33:13
+ * @FilePath: \wot-starter-main\src\pages\routerDemo\RouterDemo.vue
+ * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
+-->
 <template>
   <view class="router-demo">
     <test></test>
-    <wd-button block size="large" type="primary" @click="nav1">字符串路径</wd-button>
-    <wd-button block size="large" type="primary" @click="nav2">带有路径的对象</wd-button>
-    <wd-button block size="large" type="primary" @click="nav3">命名的路由</wd-button>
-    <wd-button block size="large" type="primary" @click="nav4">带查询参数</wd-button>
-    <wd-button block size="large" type="primary" @click="nav5">命名的路由传递对象</wd-button>
-    <wd-button block size="large" type="primary" @click="nav6">path+query，传递对象</wd-button>
+    <wd-button block size="large" type="primary" @click="nav1"
+      >字符串路径</wd-button
+    >
+    <wd-button block size="large" type="primary" @click="nav2"
+      >带有路径的对象</wd-button
+    >
+    <wd-button block size="large" type="primary" @click="nav3"
+      >命名的路由</wd-button
+    >
+    <wd-button block size="large" type="primary" @click="nav4"
+      >带查询参数</wd-button
+    >
+    <wd-button block size="large" type="primary" @click="nav5"
+      >命名的路由传递对象</wd-button
+    >
+    <wd-button block size="large" type="primary" @click="nav6"
+      >path+query，传递对象</wd-button
+    >
   </view>
 </template>
 
@@ -36,25 +56,34 @@ function nav3() {
 
 // 带查询参数，结果是 /pagesA/routerDemo/RouterDemo1?name=routerDemo1
 function nav4() {
-  router.push({ path: '/pagesA/routerDemo/RouterDemo1', query: { name: 'routerDemo1' } })
+  router.push({
+    path: '/pagesA/routerDemo/RouterDemo1',
+    query: { name: 'routerDemo1' },
+  })
 }
 
 // 命名的路由，传递对象参数
 function nav5() {
   const user = {
     name: '小星星',
-    label: '小熊熊'
+    label: '小熊熊',
   }
-  router.push({ name: 'routerDemo1', params: { user: encodeURIComponent(JSON.stringify(user)) } })
+  router.push({
+    name: 'routerDemo1',
+    params: { user: encodeURIComponent(JSON.stringify(user)) },
+  })
 }
 
 // path+query，传递对象参数
 function nav6() {
   const user = {
     name: '小星星',
-    label: '小熊熊'
+    label: '小熊熊',
   }
-  router.push({ path: '/pagesA/routerDemo/RouterDemo1', query: { user: encodeURIComponent(JSON.stringify(user)) } })
+  router.push({
+    path: '/pagesA/routerDemo/RouterDemo1',
+    query: { user: encodeURIComponent(JSON.stringify(user)) },
+  })
 }
 </script>
 

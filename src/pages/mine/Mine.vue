@@ -13,12 +13,20 @@
     <wd-toast></wd-toast>
     <view class="mine">
       <view class="tools">
-        <wd-icon name="scan" size="48rpx" color="#292C39" @click="doScan"></wd-icon>
+        <wd-icon
+          name="scan"
+          size="48rpx"
+          color="#292C39"
+          @click="doScan"
+        ></wd-icon>
         <wd-icon name="setting" size="48rpx" color="#292C39"></wd-icon>
       </view>
       <view class="header">
         <view class="header-user">
-          <image src="https://fastly.jsdelivr.net/npm/@vant/assets/cat.jpeg" class="header-user-avatar"></image>
+          <image
+            src="https://fastly.jsdelivr.net/npm/@vant/assets/cat.jpeg"
+            class="header-user-avatar"
+          ></image>
           <view class="header-user-nickname">
             <view class="nickname">{{ userInfo?.nickName }}🧑‍💻</view>
             <view class="info">{{ userInfo?.school }}</view>
@@ -28,7 +36,11 @@
           </view>
         </view>
         <view class="header-target">
-          <view class="header-target-item" v-for="(item, key) of target" :key="key">
+          <view
+            class="header-target-item"
+            v-for="(item, key) of target"
+            :key="key"
+          >
             <text class="label">{{ item }}</text>
             <text class="value">{{ key }}</text>
           </view>
@@ -38,7 +50,12 @@
         <wd-cell-group border>
           <wd-cell title="余额" value="9999999999+" is-link />
           <wd-cell title="定位" value="天涯海角" is-link icon="evaluation" />
-          <wd-cell title="退出当前账号" @click="doLogout" icon="translate-bold" is-link />
+          <wd-cell
+            title="退出当前账号"
+            @click="doLogout"
+            icon="translate-bold"
+            is-link
+          />
         </wd-cell-group>
       </view>
     </view>
@@ -61,7 +78,7 @@ const target = ref<Record<string, number>>({
   修身: 99,
   齐家: 99,
   治国: 99,
-  评天下: 144
+  评天下: 144,
 })
 
 /**
@@ -73,7 +90,7 @@ function doScan() {
       // 扫码内容
       const code: string = res.result || ''
       toast.show(`扫码内容：${code}`)
-    }
+    },
   })
 }
 

@@ -20,8 +20,15 @@
     </view>
     <view class="main">
       <wd-grid :column="4" border clickable>
-        <wd-grid-item use-slot v-for="(value, index) in chanel" :key="index" @itemclick="doNavi">
-          <view style="display: flex; flex-direction: column; align-items: center">
+        <wd-grid-item
+          use-slot
+          v-for="(value, index) in chanel"
+          :key="index"
+          @itemclick="doNavi"
+        >
+          <view
+            style="display: flex; flex-direction: column; align-items: center"
+          >
             <image class="main-img" :src="value.image" />
             <text class="main-txt">{{ value.txt }}</text>
           </view>
@@ -45,7 +52,7 @@ const swiperList = ref([
   'https://cdn.jsdelivr.net/npm/wot-design-uni-assets/capybara.jpg',
   'https://cdn.jsdelivr.net/npm/wot-design-uni-assets/panda.jpg',
   'https://img.yzcdn.cn/vant/cat.jpeg',
-  'https://cdn.jsdelivr.net/npm/wot-design-uni-assets/meng.jpg'
+  'https://cdn.jsdelivr.net/npm/wot-design-uni-assets/meng.jpg',
 ])
 
 const chanel = ref<Chanel[]>([])
@@ -82,7 +89,7 @@ function doInit(abortRequest: 'same' | 'all' | 'none' = 'none') {
       }
       showToast({
         msg: error.msg,
-        iconName: 'error'
+        iconName: 'error',
       })
     })
 }
