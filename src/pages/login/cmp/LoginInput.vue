@@ -24,7 +24,9 @@
       <wd-icon :name="icon" size="16px"></wd-icon>
     </view>
     <view
-      :class="[password && modelValue.toString().length ? 'before-icon' : 'after-icon']"
+      :class="[
+        password && modelValue.toString().length ? 'before-icon' : 'after-icon',
+      ]"
       v-if="clearable && modelValue.toString().length && focus"
       @click="doClear"
     >
@@ -50,7 +52,7 @@ const props = withDefaults(defineProps<Props>(), {
   modelValue: '',
   password: false,
   placeholder: '',
-  clearable: true
+  clearable: true,
 })
 
 const focus = ref<boolean>(false) // 输入框是否聚焦

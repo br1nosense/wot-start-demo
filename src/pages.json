@@ -2,7 +2,9 @@
   "easycom": {
 		"autoscan": true,
 		"custom": {
-		  "^wd-(.*)": "wot-design-uni/components/wd-$1/wd-$1.vue"
+		  "^wd-(.*)": "wot-design-uni/components/wd-$1/wd-$1.vue",
+          "^(.*)": "@/components/common/$1/index.vue"
+      
 		}
 	},
   "pages": [{
@@ -12,7 +14,7 @@
         "mp-alipay": {
           "allowsBounceVertical": "NO"
         },
-        "navigationBarTitleText": "首页"
+        "navigationBarTitleText": ""
       }
     },
     {

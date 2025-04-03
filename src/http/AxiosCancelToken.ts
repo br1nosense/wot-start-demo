@@ -9,7 +9,10 @@
  */
 import axios, { AxiosRequestConfig, CancelTokenSource } from 'axios'
 
-const requestMap: Map<string, CancelTokenSource> = new Map<string, CancelTokenSource>() //请求&AbortController的map
+const requestMap: Map<string, CancelTokenSource> = new Map<
+  string,
+  CancelTokenSource
+>() //请求&AbortController的map
 
 export default class AxiosCancelToken {
   /**

@@ -12,16 +12,18 @@ import App from './App.vue'
 import router from './router'
 import { persist } from './store/persist'
 import 'uno.css'
-
+import utils from '@/utils/index'
 const pinia = createPinia()
+
 pinia.use(persist)
 export function createApp() {
   const app = createSSRApp(App)
   app.config.warnHandler = () => null
   app.use(router)
   app.use(pinia)
+  app.use(utils)
   return {
     app,
-    pinia
+    pinia,
   }
 }

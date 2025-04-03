@@ -18,12 +18,12 @@ interface AuthStore {
 export const useAuthStore = defineStore('authState', {
   // state: 返回对象的函数
   state: (): AuthStore => ({
-    userInfo: null
+    userInfo: null,
   }),
   getters: {},
   actions: {
     logout() {
       this.userInfo = null
-    }
-  }
+    },
+  },
 })

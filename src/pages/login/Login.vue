@@ -7,7 +7,6 @@
         帮助你搭建好用的uniapp+vue3基础项目
       </view>
       <!-- 使用示例 -->
-      <Icon name="123.jpg" size="64" @click="handleIconClick" />
       <Icon name="RightArrow.svg" size="32" color="#666666" />
       <wd-icon name="add-circle" size="20px" color="blue" />
       <view class="login-main-body">

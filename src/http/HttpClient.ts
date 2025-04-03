@@ -15,16 +15,21 @@ export default class ApiClient {
     return ApiClient.create(baseURL, abortRequest)
   }
 
-  private static create(baseURL: string, abortRequest: 'same' | 'all' | 'none' = 'none') {
+  private static create(
+    baseURL: string,
+    abortRequest: 'same' | 'all' | 'none' = 'none'
+  ) {
     const instance = axios.create({
       withCredentials: true,
       baseURL: baseURL,
-      adapter: uniAdapter // 指定适配器
+      adapter: uniAdapter, // 指定适配器
     })
     instance.interceptors.request.use(
       (request) => {
         // 设置conten-type
-        request.headers ? (request.headers['Content-Type'] = 'application/json') : (request.headers = { 'Content-Type': 'application/json' })
+        request.headers
+          ? (request.headers['Content-Type'] = 'application/json')
+          : (request.headers = { 'Content-Type': 'application/json' })
         // 设置请求唯一标识（便于查询请求日志）
         request.headers.trace_id = new Date().getTime()
         switch (abortRequest) {
@@ -88,7 +93,8 @@ export default class ApiClient {
             // 如果当前页面不是登录页面则跳转至登录页面
             if (
               !pages[pages.length - 1].$page ||
-              (pages[pages.length - 1].$page && pages[pages.length - 1].$page.fullPath !== '/pages/login/Login')
+              (pages[pages.length - 1].$page &&
+                pages[pages.length - 1].$page.fullPath !== '/pages/login/Login')
             ) {
               uni.reLaunch({ url: '/pagesOther/login/Login' })
             }

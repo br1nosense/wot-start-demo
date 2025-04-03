@@ -11,7 +11,7 @@
 import pagesJson from '../pages.json'
 import pagesJsonToRoutes from 'uni-parse-pages'
 const router = createRouter({
-  routes: [...pagesJsonToRoutes(pagesJson)]
+  routes: [...pagesJsonToRoutes(pagesJson)],
 })
 router.beforeEach((to, from, next) => {
   const authStore = useAuthStore()

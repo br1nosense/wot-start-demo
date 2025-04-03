@@ -19,21 +19,26 @@
       </view>
     </view>
     <view class="main">
-      <wd-grid :column="4" border clickable>
+      <wd-grid :column="3" border clickable>
         <wd-grid-item
           use-slot
-          v-for="(value, index) in chanel"
+          v-for="(item, index) in chanel"
           :key="index"
-          @itemclick="doNavi"
+          @itemclick="doNavi(item)"
         >
-          <view
-            style="display: flex; flex-direction: column; align-items: center"
-          >
-            <image class="main-img" :src="value.image" />
-            <text class="main-txt">{{ value.txt }}</text>
+          <view class="grid-item">
+            <!-- <image class="main-img" :src="item.image" /> -->
+            <Icon
+              class="main-img"
+              :name="item.image"
+              size="64"
+              color="#666666"
+            />
+            <text class="main-txt">{{ item.txt }}</text>
           </view>
         </wd-grid-item>
       </wd-grid>
+      <view>{{ '13729882525' }}</view>
     </view>
   </view>
 </template>
@@ -41,11 +46,11 @@
 <script lang="ts" setup>
 import DemoApi from '@/api/DemoApi'
 import Chanel from '@/model/Chanel'
-import axios from 'axios'
-import { ref } from 'vue'
+
 import { useNotify, useToast } from 'wot-design-uni'
 const { show: showToast, loading: showLoading, close: hideLoading } = useToast()
-
+import { onMounted, getCurrentInstance } from 'vue'
+const { proxy }: any = getCurrentInstance()
 const router = useRouter()
 const swiperList = ref([
   'https://cdn.jsdelivr.net/npm/wot-design-uni-assets/redpanda.jpg',
@@ -55,20 +60,44 @@ const swiperList = ref([
   'https://cdn.jsdelivr.net/npm/wot-design-uni-assets/meng.jpg',
 ])
 
-const chanel = ref<Chanel[]>([])
-
-onMounted(() => {
-  doInit()
-  setTimeout(() => {
-    doInit('same')
-  }, 400)
-})
+const chanel = ref<Chanel[]>([
+  {
+    image: 'vehicle.png',
+    txt: '车辆管理',
+    path: '/pages/vehicle/list',
+  },
+  {
+    image: 'location.png',
+    txt: '实时定位',
+    path: '/pages/location/realtime',
+  },
+  {
+    image: 'alarm.png',
+    txt: '报警信息',
+    path: '/pages/alarm/list',
+  },
+  {
+    image: 'video.png',
+    txt: '视频监控',
+    path: '/pages/video/index',
+  },
+  {
+    image: 'track.png',
+    txt: '历史轨迹',
+    path: '/pages/track/history',
+  },
+  {
+    image: 'control.png',
+    txt: '车辆控制',
+    path: '/pages/control/panel',
+  },
+])
 
 /**
- * 跳转至路由演示页面
+ * 跳转至对应功能页面
  */
-function doNavi() {
-  router.push({ name: 'routerDemo' })
+function doNavi(item: Chanel) {
+  router.push({ path: item.path })
 }
 
 /**
@@ -123,13 +152,21 @@ function doInit(abortRequest: 'same' | 'all' | 'none' = 'none') {
   }
   .main {
     &-img {
-      width: 64rpx;
-      height: 64rpx;
-      margin-bottom: 24rpx;
+      width: 80rpx;
+      height: 80rpx;
+      margin-bottom: 16rpx;
     }
     &-txt {
-      font-size: 20rpx;
-      color: #646566;
+      font-size: 24rpx;
+      color: #333;
+      font-weight: 500;
+    }
+    .grid-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 24rpx 0;
+      background-color: #4d80f0;
     }
   }
 }

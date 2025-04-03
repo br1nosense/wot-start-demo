@@ -28,7 +28,9 @@ export default class DemoApi {
   /**
    * 初始化
    */
-  static init(abortRequest: 'same' | 'all' | 'none' = 'none'): Promise<BaseResponse<Chanel[]>> {
+  static init(
+    abortRequest: 'same' | 'all' | 'none' = 'none'
+  ): Promise<BaseResponse<Chanel[]>> {
     return http
       .server(abortRequest)
       .post('api/init', {}, {})

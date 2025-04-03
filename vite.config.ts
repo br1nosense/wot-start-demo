@@ -1,8 +1,8 @@
 /*
  * @Author: weisheng
  * @Date: 2023-03-21 22:49:24
- * @LastEditTime: 2023-09-03 13:07:25
- * @LastEditors: weisheng
+ * @LastEditTime: 2025-04-01 18:10:42
+ * @LastEditors: ‘baifeirong’ ‘963015343@qq.com’
  * @Description:
  * @FilePath: \wot-starter\vite.config.ts
  * 记得注释
@@ -24,15 +24,15 @@ export default defineConfig({
         'pinia',
         {
           from: 'uni-mini-router',
-          imports: ['createRouter', 'useRouter', 'useRoute']
-        }
+          imports: ['createRouter', 'useRouter', 'useRoute'],
+        },
       ],
       dts: 'src/auto-imports.d.ts',
-      dirs: ['src/store'],
+      dirs: ['src/store', 'src/components/common'],
       eslintrc: {
         enabled: true,
-        globalsPropValue: true
-      }
-    })
-  ]
+        globalsPropValue: true,
+      },
+    }),
+  ],
 })

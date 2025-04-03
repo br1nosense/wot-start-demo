@@ -9,7 +9,12 @@
 -->
 <template>
   <view class="home">
-    <wd-cell title="清除登录信息" @click="doLogout" icon="ic_shutdown_line" is-link />
+    <wd-cell
+      title="清除登录信息"
+      @click="doLogout"
+      icon="ic_shutdown_line"
+      is-link
+    />
   </view>
 </template>
 
